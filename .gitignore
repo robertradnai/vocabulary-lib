@@ -1,6 +1,6 @@
 # Project-specific files
 tests/testdata_temp/
-
+docs/
 .idea/
 
 # Byte-compiled / optimized / DLL files
@@ -37,7 +37,6 @@ MANIFEST
 #  before PyInstaller builds the exe, so as to inject date/other infos into it.
 *.manifest
 *.spec
-docs/
 
 # Installer logs
 pip-log.txt
