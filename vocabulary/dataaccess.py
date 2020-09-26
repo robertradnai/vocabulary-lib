@@ -2,6 +2,7 @@ import logging
 from .models import Flashcard, WordList, WordCollection
 from typing import Dict, Tuple
 from openpyxl import Workbook
+import pickle
 
 mpl_logger = logging.getLogger('matplotlib')
 mpl_logger.setLevel(logging.WARNING)
@@ -13,7 +14,7 @@ REMARKS_COL = 3
 LEARNING_STATUS_COL = 4
 
 
-def load_wordlist_book(wb_path: str) -> Tuple[WordCollection, Workbook]:
+def load_wordlist_book(wb_path: str) -> WordCollection:
     """
     Load the wordlist_book dictionary from an Excel file.
     :param wb_path: Path of Excel file
@@ -27,7 +28,7 @@ def load_wordlist_book(wb_path: str) -> Tuple[WordCollection, Workbook]:
         remarks_col=REMARKS_COL,
         learning_status_col=LEARNING_STATUS_COL
     )
-    return wordlist_book, workbook
+    return wordlist_book
 
 
 def save_wordlist_book(wb_path: str, word_collection: WordCollection):
@@ -145,3 +146,14 @@ def load_string(file_path):
 class NoValidWordListsError(Exception):
     pass
 
+
+def word_collection_to_pickle(path: str, word_collection: WordCollection):
+
+    with open(path, 'wb') as f:
+        pickle.dump(word_collection, f)
+
+
+def word_collection_from_pickle(path: str) -> WordCollection:
+    import pickle
+    with open(path, 'rb') as f:
+        return pickle.load(f)

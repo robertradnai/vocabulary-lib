@@ -128,7 +128,7 @@ class Vocabulary:
 
     def load(self, wb_path: str):
 
-        self.word_collection, self.workbook = dataaccess.load_wordlist_book(wb_path)
+        self.word_collection = dataaccess.load_wordlist_book(wb_path)
         self.word_pool_lang1, self.word_pool_lang2 = _build_word_pool(self.word_collection)
         self.wb_path = wb_path
         self.status = VSTATUS_CHOOSE_SHEET
@@ -145,7 +145,7 @@ class Vocabulary:
         return self.selected_word_list_name
 
     def set_current_word_sheet(self, word_sheet_name: str):
-        if word_sheet_name in self.workbook.sheetnames:
+        if word_sheet_name in self.word_collection.word_lists.keys():
             self.selected_word_list_name = word_sheet_name
         else:
             raise ValueError("Invalid sheet name")

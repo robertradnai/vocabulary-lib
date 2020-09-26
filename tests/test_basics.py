@@ -35,7 +35,7 @@ class TestFileMgr(unittest.TestCase):
         testdict_in = TEST_DICT_PATH
         testdict_out = TEST_DICT_PATH
 
-        word_collection, workbook = dataaccess.load_wordlist_book(wb_path=testdict_in)
+        word_collection = dataaccess.load_wordlist_book(wb_path=testdict_in)
 
         # Verify if the data was loaded successfully
         #  by taking a few datapoints as a sample

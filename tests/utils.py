@@ -2,6 +2,7 @@ import os
 import shutil
 
 TEST_DICT_PATH = "testdata_temp/testdict.xlsx"
+TEST_DICT_PARQUET_PATH = "testdata_temp/testdict.parquet"
 TEST_DICT_OUT_PATH = "testdata_temp/testdict_out.xlsx"
 
 
