@@ -40,3 +40,11 @@ class WordCollection:
         self.lang1 = lang1
         self.lang2 = lang2
         self.word_lists = word_lists
+
+
+class QuizPackage:
+    def __init__(self, directives: dict, question: Question, flashcard: Flashcard):
+        self.directives = directives
+        self.question = question
+        self.flashcard = flashcard
+

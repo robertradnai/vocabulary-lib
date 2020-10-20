@@ -8,16 +8,46 @@ from . import dataaccess
 
 import random
 from . import alternatives, learningprogress
-from .models import Question, Flashcard
-from typing import Callable
+from typing import Callable, Dict
+from .models import Question, Flashcard, QuizPackage
 from .models import WordCollection, WordList
 from .vocabulary import _choice_quiz, _check_answer, _build_word_pool, _update_learning_progress
 from .vocabulary import _get_learning_progress
-from .learningprogress import submit_answer
+from .learningprogress import submit_answer, pick_words, Progress, PickOrder
+from pdb import set_trace
 
 VSTATUS_LOAD_FILE = 1
 VSTATUS_CHOOSE_SHEET = 2
 VSTATUS_READY_FOR_QUIZ = 3
+
+SHOW_FLASHCARD_KEY_NAME = "showFlashcard"
+
+
+def _build_quiz(word_list: WordList, row_key: int, alternatives_pool, flashcard_only: bool) -> QuizPackage:
+
+    flashcard = Flashcard(
+        lang1=word_list.flashcards[row_key].lang1,
+        lang2=word_list.flashcards[row_key].lang2,
+        remarks=word_list.flashcards[row_key].remarks,
+        learning_status=word_list.flashcards[row_key].learning_status
+    )
+
+    if flashcard_only:
+        question = None
+    else:
+        incorrect_alternatives = alternatives.most_similar(flashcard.lang1, alternatives_pool, 50, 4,
+                                                           alternatives.calc_similarity)
+
+        question = Question(row_key=row_key,
+                            text=flashcard.lang2,
+                            options=[flashcard.lang1] + incorrect_alternatives)
+        random.shuffle(question.options)
+
+    quiz_package = QuizPackage(directives={SHOW_FLASHCARD_KEY_NAME: flashcard_only},
+                               question=question,
+                               flashcard=flashcard)
+    return quiz_package
+
 
 
 class Vocabulary:
@@ -53,16 +83,50 @@ class Vocabulary:
         :return: whether to show the flashcard (instead of the question), Question, Flashcard
         """
 
-        (new_word_list,
-         show_flashcard,
-         question,
-         flashcard) = _choice_quiz(self._get_word_list(word_list_name),
-                                   self.word_pool_lang1)
-        self._set_word_list(word_list_name, new_word_list)
+        # Pick 5 expressions, get flashcards and alternatives
+        learning_progress_dict: Dict[int, str] = _get_learning_progress(self._get_word_list(word_list_name))
+        row_keys_new = pick_words(learning_progress_dict=learning_progress_dict,
+                                  filter_by_progress=lambda p: p == Progress.NEW,
+                                  order=PickOrder.ORIGINAL,
+                                  max_count_from_size=lambda v:  5)
 
-        return show_flashcard, question, flashcard
+        row_keys_recent = pick_words(learning_progress_dict=learning_progress_dict,
+                                     filter_by_progress=lambda p: p == Progress.RECENT,
+                                     order=PickOrder.SHUFFLED,
+                                     max_count_from_size=lambda v:  5)
 
-    def update_progress(self, word_list_name: str, question: Question, q_correctly_answered: bool):
+        row_keys_learned = pick_words(learning_progress_dict=learning_progress_dict,
+                                      filter_by_progress=lambda p: p == Progress.LEARNED,
+                                      order=PickOrder.SHUFFLED,
+                                      max_count_from_size=lambda size:  3 if size > 10 else 0)
+
+        flashcards_only = [_build_quiz(word_list=self._get_word_list(word_list_name),
+                           row_key=row_key,
+                        alternatives_pool=None,
+                         flashcard_only=True) for row_key in row_keys_new]
+        new_questions = [_build_quiz(word_list=self._get_word_list(word_list_name),
+                           row_key=row_key,
+                           alternatives_pool=self.word_pool_lang1,
+                           flashcard_only=False) for row_key in row_keys_new]
+        random.shuffle(new_questions)
+
+        recent_questions = [_build_quiz(word_list=self._get_word_list(word_list_name),
+                                     row_key=row_key,
+                                     alternatives_pool=self.word_pool_lang1,
+                                     flashcard_only=False) for row_key in row_keys_recent]
+        random.shuffle(recent_questions)
+
+        learned_questions = [_build_quiz(word_list=self._get_word_list(word_list_name),
+                                        row_key=row_key,
+                                        alternatives_pool=self.word_pool_lang1,
+                                        flashcard_only=False) for row_key in row_keys_learned]
+        random.shuffle(learned_questions)
+
+        quiz_packages = flashcards_only + new_questions + recent_questions + learned_questions
+
+        return quiz_packages
+
+    def update_progress(self, word_list_name: str, row_key, q_correctly_answered: bool):
         """
         Check the given answer if it's correct or not correct. Update the learning progress based on the answer.
         :return:
@@ -70,7 +134,7 @@ class Vocabulary:
 
         word_list = self._get_word_list(word_list_name)
         learning_progress_mod = submit_answer(_get_learning_progress(word_list),
-                                              question.row_key, q_correctly_answered)
+                                              row_key, q_correctly_answered)
         word_list_mod = _update_learning_progress(word_list, learning_progress_mod)
 
         self._set_word_list(word_list_name, word_list_mod)
@@ -92,3 +156,6 @@ class Vocabulary:
 
     def _set_word_list(self, word_list_name: str, word_list: WordList):
         self.word_collection.word_lists[word_list_name] = word_list
+
+
+

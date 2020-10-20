@@ -52,14 +52,13 @@ and from recently learned to actively learning queue.
 
 __docformat__ = 'reStructuredText'
 
-import copy
-import random
 import logging
-from .models import WordList
-from typing import Dict
+from typing import Dict, Callable, List
+import random
 
 # Constants for the groups
-NOTSEEN = 1
+QUEUE = 0
+FLASHCARD = 1
 ACTIVE1 = 2
 ACTIVE2 = 3
 ACTIVEQ = 4
@@ -68,14 +67,20 @@ RECENT2 = 6
 RECENTQ = 7
 LEARNED = 8
 
-DEFAULT_LEARNING_STATUS = 1
 
-_CHANGEMAP_CORRECT = {NOTSEEN: ACTIVE1, ACTIVE1: RECENTQ,
-                      ACTIVE2: RECENTQ, RECENT1: LEARNED,
-                      RECENT2: LEARNED, LEARNED: LEARNED}
-_CHANGEMAP_INCORRECT = {NOTSEEN: NOTSEEN, ACTIVE1: ACTIVE1,
-                        ACTIVE2: ACTIVE1, RECENT1: ACTIVEQ,
-                        RECENT2: RECENT1, LEARNED: RECENTQ}
+# New groups
+class Progress:
+    NEW = FLASHCARD
+    RECENT = RECENT1
+    LEARNED = LEARNED
+
+
+DEFAULT_LEARNING_STATUS = FLASHCARD
+
+_CHANGEMAP_CORRECT = {Progress.NEW: Progress.RECENT, Progress.RECENT: Progress.LEARNED,
+                      Progress.LEARNED: Progress.LEARNED}
+_CHANGEMAP_INCORRECT = {Progress.NEW: Progress.NEW, Progress.RECENT: Progress.NEW,
+                        Progress.LEARNED: Progress.RECENT}
 
 
 def pick_word(learning_progress_dict: Dict[int, str], active_limit: int, recent_limit: int) -> (Dict[int, str], int):
@@ -83,7 +88,7 @@ def pick_word(learning_progress_dict: Dict[int, str], active_limit: int, recent_
     :return: new learning progress dictionary, key of the picked word
     """
 
-    progress_dict_mod = _fill_groups(
+    progress_dict_mod = _fill_groups2(
         _validate(learning_progress_dict),
         None,
         active_limit,
@@ -99,56 +104,77 @@ def pick_word(learning_progress_dict: Dict[int, str], active_limit: int, recent_
     # In the recently learned group, it should be about 1%
     # The recently learned group is in essence a dynamically changing "buffer"
     # Its size can be influenced only in an indirect way, by setting probabilities
+    queue_rows = sc.get(QUEUE, [])
+    flashcard_rows = sc.get(FLASHCARD, [])
     active_rows = sc.get(ACTIVE1, []) + sc.get(ACTIVE2, [])
     recent_rows = sc.get(RECENT1, []) + sc.get(RECENT2, [])
     learned_rows = sc.get(LEARNED, [])
 
-    if len(active_rows) < 5:
-        prob_active = 0.7
-        prob_recent = 0.1
-    elif len(recent_rows) < 40:
-        # If there are not a lot of words in the rencently learned group,
-        # the probability of asking them will be low
-        prob_active = 0.45
-        prob_recent = 0.35
-    elif len(recent_rows) < 50:
-        prob_active = 0.4
-        prob_recent = 0.4
+    # Deciding what kind of question should be shown to the user
+    # A new word? A recently learned one?
+    # The groups to pick are added to a "hat" from which
+    # one group should be drawn. Weighted choices are implemented by
+    # adding one group several times.
+    hat = []
+
+    if len(flashcard_rows) > 0:
+        hat.extend([FLASHCARD, FLASHCARD])
+
+    if len(active_rows) > 0:
+        hat.extend([ACTIVE1, ACTIVE1])
+
+    if len(recent_rows) > 0:
+        hat.extend([RECENT1, RECENT1])
+
+    if len(learned_rows) > 10:
+        hat.extend([LEARNED])
+
+    # Drawing
+    chosen_group = random.choice(hat)
+
+    if chosen_group == FLASHCARD:
+        selected_key = random.choice(flashcard_rows)
+        logging.debug("Flashcard group - picked {} from {}".format(selected_key, flashcard_rows))
+    elif chosen_group == ACTIVE1:
+        selected_key = random.choice(active_rows)
+        logging.debug("Active group - picked {} from {}".format(selected_key, active_rows))
+    elif chosen_group == RECENT1:
+        selected_key = random.choice(recent_rows)
+        logging.debug("Recent group - picked {} from {}".format(selected_key, active_rows))
+    elif chosen_group == LEARNED:
+        selected_key = random.choice(learned_rows)
+        logging.debug("Learned group - picked {} from {}".format(selected_key, active_rows))
     else:
-        prob_active = 0.3
-        prob_recent = 0.5
+        raise Exception(f"Drawing hat has an unexpected value during picking questions: {hat}")
 
-    rnd = random.random()
-    if rnd < prob_active:
-        # Chance for picking a word from the active group
-        if not len(active_rows) == 0:
-            selected_key = random.choice(active_rows)
-            logging.debug("Active group - picked {} from {}".format(selected_key, recent_rows))
-        else:
-            selected_key = random.choice(active_rows + recent_rows + learned_rows)
-            logging.debug("Active group is empty - picked {} from {}".
-                          format(selected_key, active_rows + recent_rows + learned_rows))
-    elif prob_active < rnd < prob_active + prob_recent:
-        # Chance for picking a word from the recent group
-        if not len(recent_rows) == 0:
-            selected_key = random.choice(recent_rows)
-            logging.debug("Recent rows - picked {} from {}".format(selected_key, recent_rows))
+    show_flashcard = (chosen_group == FLASHCARD)
+    return progress_dict_mod, selected_key, show_flashcard
 
-        else:
-            selected_key = random.choice(active_rows + recent_rows + learned_rows)
-            logging.debug("Recent group is empty - picked {} from {}".
-                          format(selected_key, active_rows + recent_rows + learned_rows))
+
+def pick_words(learning_progress_dict: Dict[int, str],
+               filter_by_progress: Callable[[str], bool],
+               order: str, max_count_from_size: Callable[[int], int]) -> List[int]:
+
+    filtered_row_ids: List[int] = _get_row_ids(learning_progress_dict, filter_by_progress)
+
+    if order == PickOrder.SHUFFLED:
+        random.shuffle(filtered_row_ids)
+    elif order == PickOrder.ORIGINAL:
+        pass
     else:
-        # Chance for picking a word from the learned group
-        if not len(learned_rows) == 0:
-            selected_key = random.choice(learned_rows)
-            logging.debug("Learned rows - picked {} from {}".format(selected_key, learned_rows))
-        else:
-            selected_key = random.choice(active_rows + recent_rows + learned_rows)
-            logging.debug("Learned group is empty - picked {} from {}".
-                          format(selected_key, active_rows + recent_rows + learned_rows))
+        raise Exception(f"Incorrect directive for order: {order}")
 
-    return progress_dict_mod, selected_key
+    return filtered_row_ids[0:min(len(filtered_row_ids), max_count_from_size(len(filtered_row_ids)))]
+
+
+def _get_row_ids(learning_progress_dict: Dict[int, str],
+                 filter_fcn: Callable[[str], bool]) -> List[int]:
+    return [k for k, v in learning_progress_dict.items() if filter_fcn(v)]
+
+
+class PickOrder:
+    ORIGINAL = "original"
+    SHUFFLED = "shuffled"
 
 
 def submit_answer(learning_progress_dict, row_id, correct):
@@ -181,16 +207,15 @@ def calculate_learning_progress(learning_status_dict: Dict[int, str]) -> float:
     :return:
 
     """
-    groups = _group_status(learning_status_dict)
-    all_count = sum([len(groups[key]) for key in groups])
-    recent_count = len(groups.get(RECENT1, [])) + len(groups.get(RECENTQ, [])) + len(groups.get(RECENTQ, []))
-    learned_count = len(groups.get(LEARNED, []))
+    all_count = len(_get_row_ids(learning_status_dict, lambda group: True))
+    recent_count = len(_get_row_ids(learning_status_dict, lambda group: group == Progress.RECENT))
+    learned_count = len(_get_row_ids(learning_status_dict, lambda group: group == Progress.LEARNED))
 
     return (1*learned_count + 0.5*recent_count)/float(all_count)
 
 
 def reset_progress(learning_status_dict: Dict[int, str]):
-    return {row: NOTSEEN for row, value in learning_status_dict.items()}
+    return {row: Progress.NEW for row, value in learning_status_dict.items()}
 
 
 def _validate(learning_progress: Dict[int, str]):
@@ -217,7 +242,7 @@ def _validate_learning_status(learning_status, raise_exc=False):
                 raise Exception("Improper entry in learning status field: {}".format(learning_status))
             return DEFAULT_LEARNING_STATUS
 
-    accepted_status = [NOTSEEN, ACTIVE1, ACTIVE2, ACTIVEQ, RECENT1, RECENT2, RECENTQ, LEARNED]
+    accepted_status = [FLASHCARD, ACTIVE1, ACTIVE2, ACTIVEQ, RECENT1, RECENT2, RECENTQ, LEARNED]
 
     if learning_status not in accepted_status:
         if raise_exc:
@@ -308,12 +333,48 @@ def _fill_groups(status_dict, progress_marks, active_limit, recent_limit):
     # move words from not seen to active until active1+2 is full or not seen is empty
     while active_size(groups) < active_limit:
         # Stop moving elements if the list is empty
-        if len(groups.get(NOTSEEN, [])) == 0:
+        if len(groups.get(FLASHCARD, [])) == 0:
             break
         else:
-            row = groups[NOTSEEN].pop(0)
+            row = groups[FLASHCARD].pop(0)
             logging.debug("Moving row {}: not seen --> active 1".format(row))
             groups.setdefault(ACTIVE1, []).append(row)
+
+    learning_status_mod = _ungroup_status(groups)
+    return learning_status_mod
+
+
+def _fill_groups2(status_dict, progress_marks, flashcard_limit, recent_limit):
+    """Regroup rows so that certain groups contain the specified number of items."""
+
+    # Group rows
+    groups = _group_status(status_dict)
+
+    # Check group counts
+    def flashcard_size(_groups):
+        return len(_groups.get(FLASHCARD, []))
+
+    def active_size(_groups):
+        return len(_groups.get(ACTIVE1, [])) + len(_groups.get(ACTIVE2, []))
+
+    def active_queue_size(_groups):
+        return len(_groups.get(ACTIVEQ, []))
+
+    def recent_size(_groups):
+        return len(_groups.get(RECENT1, [])) + len(_groups.get(RECENT2, []))
+
+    def recent_queue_size(_groups):
+        return len(_groups.get(RECENTQ, []))
+
+    # move words from active queue to active1 until active1+2 is full or queue is empty
+    while flashcard_size(groups) < flashcard_limit:
+        # Stop moving elements if the list is empty
+        if len(groups.get(QUEUE, [])) == 0:
+            break
+        else:
+            row = groups[QUEUE].pop(0)
+            logging.debug("Moving row {}: queue --> flashcard".format(row))
+            groups.setdefault(FLASHCARD, []).append(row)
 
     learning_status_mod = _ungroup_status(groups)
     return learning_status_mod

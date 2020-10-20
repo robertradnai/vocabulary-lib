@@ -21,3 +21,8 @@ learning_progress = voc.get_progress()
 # Save learning progress
 voc.save()
 ```
+# How to create binary package and source distribution
+```
+pip install --upgrade setuptools wheel
+python setup.py sdist bdist_wheel
+```

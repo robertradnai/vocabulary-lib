@@ -23,7 +23,7 @@ def _choice_quiz(word_list: WordList, word_pool: list) -> (bool, dict, dict):
 
     learning_progress_dict: Dict[int, str] = _get_learning_progress(word_list)
 
-    new_progress_dict, row_key = \
+    new_progress_dict, row_key, show_flashcard = \
         learningprogress.pick_word(learning_progress_dict, active_limit, recent_limit)
     new_word_list = _update_learning_progress(word_list, new_progress_dict)
 
@@ -43,7 +43,6 @@ def _choice_quiz(word_list: WordList, word_pool: list) -> (bool, dict, dict):
     random.shuffle(question.options)
 
     # If the word is seen for the first time, a flashcard will be shown instead of the question
-    show_flashcard = (flashcard.learning_status == 1)
     return new_word_list, show_flashcard, question, flashcard
 
 

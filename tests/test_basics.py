@@ -83,7 +83,7 @@ class TestLearningProgress(unittest.TestCase):
                 learnprog_dict = learningprogress.reset_progress(learnprog_base)
 
                 for i in range(0, no_of_repetitions*len(learnprog_dict.keys())):
-                    learnprog_dict, selected_key = learningprogress.pick_word(
+                    learnprog_dict, selected_key, show_flashcard = learningprogress.pick_word(
                         learnprog_dict, 5, 25)
                     learningprogress.submit_answer(learnprog_dict, selected_key, True)
 
