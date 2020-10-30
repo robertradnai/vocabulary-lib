@@ -17,6 +17,7 @@ pipeline {
                     //sh 'cd tests'
                     sh 'pwd'
                     sh 'ls -R'
+                    sh 'cd tests'
                     sh 'python -m unittest'
                 }
             }
