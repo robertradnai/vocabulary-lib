@@ -13,8 +13,10 @@ pipeline {
         }
         stage('unit tests') {
             steps {
-                sh 'cd tests'
-                sh 'python -m unittest'
+                withEnv(["HOME=${env.WORKSPACE}"]) {
+                    sh 'cd tests'
+                    sh 'python -m unittest'
+                }
             }
         }
     }
