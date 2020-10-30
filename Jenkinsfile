@@ -8,8 +8,10 @@ pipeline {
             }
         }
         stage('unit tests') {
-            sh 'cd tests'
-            sh 'python -m unittest'
+            steps {
+                sh 'cd tests'
+                sh 'python -m unittest'
+            }
         }
     }
 }
