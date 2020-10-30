@@ -16,7 +16,7 @@ pipeline {
                 withEnv(["HOME=${env.WORKSPACE}"]) {
                     //sh 'cd tests'
                     sh 'pwd'
-                    sh 'tree .'
+                    sh 'ls -R'
                     sh 'python -m unittest'
                 }
             }
