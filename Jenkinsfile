@@ -3,7 +3,7 @@
 pipeline {
     agent { docker { image 'python:3.8.5-slim'  } }
     stages {
-        stage('installing the library') {
+        stage('Installing the library') {
             steps {
                 withEnv(["HOME=${env.WORKSPACE}"]) {
                     sh 'pip install --user --editable .'
@@ -11,10 +11,12 @@ pipeline {
 
             }
         }
-        stage('unit tests') {
+        stage('Unit tests') {
             steps {
                 withEnv(["HOME=${env.WORKSPACE}"]) {
                     //sh 'cd tests'
+                    sh 'pwd'
+                    sh 'tree .'
                     sh 'python -m unittest'
                 }
             }
