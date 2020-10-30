@@ -1,5 +1,5 @@
 pipeline {
-    agent { docker { image 'python:3.8.6-alpine3.12' } }
+    agent { docker { image 'python:3.8.5-slim'  } }
     stages {
         stage('installing the library') {
             steps {
