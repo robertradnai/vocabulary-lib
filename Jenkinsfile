@@ -4,7 +4,7 @@ pipeline {
         stage('installing the library') {
             steps {
                 sh 'python --version'
-                sh 'pip install -e .'
+                sh 'pip install --user --editable .'
             }
         }
         stage('unit tests') {
