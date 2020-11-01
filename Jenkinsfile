@@ -3,14 +3,16 @@
 pipeline {
     agent { docker {
         image 'python:3.8.5-slim'
-        args '--volume /tmp/vocabulary_dist:/dist_persistent'
+        args '--volume /var/jenkins_dist/vocabulary-lib:/dist_persistent'
     } }
     stages {
         stage('Installing the library') {
+
             steps {
                 withEnv(["HOME=${env.WORKSPACE}"]) {
                     sh 'pip install --user --editable .'
                 }
+
             }
         }
         stage('Unit tests') {
