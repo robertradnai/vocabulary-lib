@@ -35,11 +35,15 @@ pipeline {
         }
         stage('Saving package') {
             steps {
-                sh 'id'
-                sh 'ls -la /dist_persistent'
-                sh 'rm -f /dist_persistent/*'
-                sh 'cp dist/*.whl /dist_persistent/'
+                sh 'mkdir -p /dist_output/$GIT_BRANCH'
+                sh 'rm -f /dist_output/$GIT_BRANCH/*'
+                sh 'cp dist/*.whl /dist_output/$GIT_BRANCH/'
             }
+        }
+    }
+    post {
+        always {
+            cleanWs()
         }
     }
 }
