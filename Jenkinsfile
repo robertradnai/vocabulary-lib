@@ -3,7 +3,7 @@
 pipeline {
     agent { docker {
         image 'python:3.8.5-slim'
-        args '--volume /var/jenkins_dist/vocabulary-lib/main:/dist_persistent'
+        args '--volume /var/jenkins_dist/vocabulary-lib/main:/dist_output'
     } }
     stages {
         stage('Installing the library') {
