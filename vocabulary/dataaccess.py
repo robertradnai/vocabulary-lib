@@ -1,8 +1,9 @@
 import logging
-from .models import Flashcard, WordList, WordCollection
+from .models import Flashcard, WordList, WordCollection, LearningProgressEntry, LearningProgress
 from typing import Dict, Tuple
 from openpyxl import Workbook
 import pickle
+from typing import List
 
 mpl_logger = logging.getLogger('matplotlib')
 mpl_logger.setLevel(logging.WARNING)
@@ -12,6 +13,30 @@ LANG1_COL = 1
 LANG2_COL = 2
 REMARKS_COL = 3
 LEARNING_STATUS_COL = 4
+
+
+class WordListDaoExcel:
+
+    def __init__(self, workbook_path: str):
+
+        workbook = _load_workbook_by_path(workbook_path)
+
+        self.word_collection: WordCollection = _excel_wb_to_word_collection(
+            workbook=workbook,
+            lang1_col=LANG1_COL,
+            lang2_col=LANG2_COL,
+            remarks_col=REMARKS_COL,
+            learning_status_col=LEARNING_STATUS_COL
+        )
+
+    def get_word_list_names(self) -> List[str]:
+        return list(self.word_collection.word_lists.keys())
+
+    def get_word_list(self, word_list_name: str) -> WordList:
+        return self.word_collection.word_lists[word_list_name]
+
+    def is_word_list(self, word_list_name: str) -> bool:
+        return word_list_name in self.word_collection.word_lists.keys()
 
 
 def load_wordlist_book(wb_path: str) -> WordCollection:
@@ -29,7 +54,6 @@ def load_wordlist_book(wb_path: str) -> WordCollection:
         learning_status_col=LEARNING_STATUS_COL
     )
     return wordlist_book
-
 
 def save_wordlist_book(wb_path: str, word_collection: WordCollection):
     """Save the word collection.
@@ -65,7 +89,7 @@ def _excel_wb_to_word_collection(workbook, lang1_col, lang2_col,
                                  remarks_col, learning_status_col) -> WordCollection:
     wordlist_book = {}
     for sheet_name in workbook.sheetnames:
-        wordlist_frame = _excel_worksheet_to_wordlist(workbook, sheet_name, lang1_col, lang2_col,
+        wordlist_frame: WordList = _excel_worksheet_to_wordlist(workbook, sheet_name, lang1_col, lang2_col,
                                                       remarks_col, learning_status_col)
         if len(wordlist_frame.flashcards) >= 5:
             wordlist_book[sheet_name] = wordlist_frame
@@ -84,6 +108,7 @@ def _excel_worksheet_to_wordlist(workbook, sheet_name, lang1_col, lang2_col, rem
     Create a WordList object from a worksheet
     """
     flashcards: Dict[int, Flashcard] = {}
+    learning_progress_codes: Dict[int, int] = {}
 
     # Avoiding overly large word lists
     if workbook[sheet_name].max_row > 10000:
@@ -113,12 +138,13 @@ def _excel_worksheet_to_wordlist(workbook, sheet_name, lang1_col, lang2_col, rem
         flashcards[row] = Flashcard(
             lang1=lang1_word,
             lang2=lang2_word,
-            remarks=remarks,
-            learning_status=learning_status
+            remarks=remarks
         )
 
-    return WordList(lang1=lang1, lang2=lang2, name=sheet_name, flashcards=flashcards)
+        learning_progress_codes[row] = learning_status
 
+    return WordList(lang1=lang1, lang2=lang2, name=sheet_name, flashcards=flashcards,
+                    learning_progress_codes=learning_progress_codes)
 
 
 def _word_collection_to_wb(workbook, word_list: WordList, columns):
@@ -129,7 +155,7 @@ def _word_collection_to_wb(workbook, word_list: WordList, columns):
         workbook[vocab_name].cell(row=row, column=LANG1_COL).value = flashcard.lang1
         workbook[vocab_name].cell(row=row, column=LANG2_COL).value = flashcard.lang2
         workbook[vocab_name].cell(row=row, column=REMARKS_COL).value = flashcard.remarks
-        workbook[vocab_name].cell(row=row, column=LEARNING_STATUS_COL).value = flashcard.learning_status
+        workbook[vocab_name].cell(row=row, column=LEARNING_STATUS_COL).value = word_list.learning_progress_codes[row]
 
 
 def save_string(file_path, data):

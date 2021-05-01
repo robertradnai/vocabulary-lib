@@ -29,7 +29,6 @@ def _build_quiz(word_list: WordList, row_key: int, alternatives_pool, flashcard_
         lang1=word_list.flashcards[row_key].lang1,
         lang2=word_list.flashcards[row_key].lang2,
         remarks=word_list.flashcards[row_key].remarks,
-        learning_status=word_list.flashcards[row_key].learning_status
     )
 
     if flashcard_only:

@@ -6,6 +6,20 @@ from ngram import NGram
 from random import shuffle
 from typing import List, Callable
 
+from vocabulary.models import WordList
+
+
+class AlternativePoolBuilder:
+    def __init__(self):
+        self.lang1_pool: List[str] = []
+        self.lang2_pool: List[str] = []
+
+    def extend_pool(self, word_list: WordList):
+
+        for flashcard in word_list.flashcards.values():
+            self.lang1_pool.append(flashcard.lang1)
+            self.lang2_pool.append(flashcard.lang2)
+
 
 def most_similar(expression: str, pool: List[str], shortlist_count: int,
                  picked_count: int, similarity_func: Callable[[str, List[str]], List[int]]) -> List[str]:

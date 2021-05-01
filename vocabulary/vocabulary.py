@@ -31,7 +31,6 @@ def _choice_quiz(word_list: WordList, word_pool: list) -> (bool, dict, dict):
         lang1=word_list.flashcards[row_key].lang1,
         lang2=word_list.flashcards[row_key].lang2,
         remarks=word_list.flashcards[row_key].remarks,
-        learning_status=word_list.flashcards[row_key].learning_status
     )
 
     incorrect_alternatives = alternatives.most_similar(flashcard.lang1, word_pool, 50, 4,
@@ -92,20 +91,13 @@ def _build_word_pool(word_collection: WordCollection) -> (list, list):
 
 
 def _update_learning_progress(word_list: WordList, learning_progress_dict: Dict[int, str]):
-
-    new_flashcards = {row: Flashcard(lang1=flashcard.lang1,
-                                     lang2=flashcard.lang2,
-                                     remarks=flashcard.remarks,
-                                     learning_status=learning_progress_dict[row])
-                      for row, flashcard in word_list.flashcards.items()}
-
-    word_list.flashcards = new_flashcards
+    word_list.learning_progress_codes = learning_progress_dict
     return word_list
 
 
 def _get_learning_progress(word_list: WordList) -> Dict[int, str]:
-    return {key: flashcard.learning_status for key, flashcard
-            in word_list.flashcards.items()}
+    return {key: entry for key, entry in
+            word_list.learning_progress_codes.items()}
 
 
 class Vocabulary:

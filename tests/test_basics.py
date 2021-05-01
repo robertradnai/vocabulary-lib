@@ -43,18 +43,19 @@ class TestFileMgr(unittest.TestCase):
         assert word_list.lang1 == "Finnish"
         assert word_list.lang2 == "English"
         assert word_list.flashcards[2] == Flashcard(
-            lang1="talo", lang2="house", remarks="", learning_status=8)
+            lang1="talo", lang2="house", remarks="")
         assert word_list.flashcards[16] == Flashcard(
-            lang1="mutta", lang2="but", remarks="", learning_status=8)
+            lang1="mutta", lang2="but", remarks="")
         assert word_list.flashcards[8] == Flashcard(
-            lang1="uudet + t", lang2="new (plural)", remarks="t: plural marker, uudet naapurit",
-            learning_status=8)
+            lang1="uudet + t", lang2="new (plural)", remarks="t: plural marker, uudet naapurit")
 
         # Modifying some fields and saving the workbook
         word_list.flashcards[2].lang1 = "first row lang1"
         word_list.flashcards[3].lang2 = "second row lang2"
         word_list.flashcards[4].remarks = "4th row remarks"
-        word_list.flashcards[5].learning_status = 5
+        learning_progress_codes = word_list.learning_progress_codes
+        learning_progress_codes[5] = 5
+        word_list.learning_progress_codes = learning_progress_codes
         word_collection.word_lists["shorttest"] = word_list
         dataaccess.save_wordlist_book(wb_path=testdict_out, word_collection=word_collection)
 
@@ -65,7 +66,6 @@ class TestFileMgr(unittest.TestCase):
         assert wb["shorttest"]["C6"].value == "uusi naapuri"
         assert wb["shorttest"]["C4"].value == "4th row remarks"
         assert wb["shorttest"]["D5"].value == 5
-        assert int(wb["shorttest"]["D8"].value) == 8
 
 
 class TestLearningProgress(unittest.TestCase):

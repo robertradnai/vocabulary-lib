@@ -9,17 +9,15 @@ class Question:
 
 
 class Flashcard:
-    def __init__(self, lang1: str, lang2: str, remarks: str, learning_status: int = 0):
+    def __init__(self, lang1: str, lang2: str, remarks: str):
         self.lang1 = lang1
         self.lang2 = lang2
         self.remarks = remarks
-        self.learning_status = learning_status
 
     def __eq__(self, other):
         if not isinstance(other, Flashcard):
             return NotImplemented
-        return self.lang1 == other.lang1 and self.lang2 == other.lang2 and self.remarks == other.remarks and \
-               self.learning_status == other.learning_status
+        return self.lang1 == other.lang1 and self.lang2 == other.lang2 and self.remarks == other.remarks
 
 
 class LearningProgress:
