@@ -1,3 +1,13 @@
+# Purpose
+
+- This library creates quiz rounds based on the word lists
+  and on the alternative expression repositories
+- A quiz round consists of flashcards and multiple-choice quizzes
+  in a fixed order, these will be shown to the user
+- The library generates alternative expression repositories from 
+  word lists, these help in generating alternative (incorrect) answers
+  for the multiple-choice quizzes
+
 # How to install
 * cd into the repository root
 * ```shell script
