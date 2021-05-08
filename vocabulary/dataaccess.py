@@ -1,3 +1,5 @@
+import csv
+import json
 import logging
 from .models import Flashcard, WordList, WordCollection, LearningProgressEntry, LearningProgress
 from typing import Dict, Tuple
@@ -183,3 +185,43 @@ def word_collection_from_pickle(path: str) -> WordCollection:
     import pickle
     with open(path, 'rb') as f:
         return pickle.load(f)
+
+
+def build_word_list(lang1, lang2, flashcards_csv_str, learning_progress_json_str= None):
+
+    flashcards = read_flashcards_from_csv_string(flashcards_csv_str, True)
+
+    if learning_progress_json_str is None:
+        learning_progress_codes = None
+    else:
+        learning_progress_codes_raw = json.loads(learning_progress_json_str)
+        learning_progress_codes = {int(k): int(v) for k, v in
+                                   learning_progress_codes_raw.items()}
+
+    return WordList(lang1=lang1, lang2=lang2, flashcards=flashcards,
+                    learning_progress_codes=learning_progress_codes)
+
+
+def save_word_list_learning_progress_json(learning_progress: Dict[int, int]) -> str:
+    return json.dumps(learning_progress)
+
+
+def read_flashcards_from_csv_string(csv_string: str, ignore_first_line):
+    from io import StringIO
+    f = StringIO(csv_string)
+
+    csv_rows = list(csv.reader(f, delimiter=','))
+
+    def row_to_flashcard(row):
+        lang1 = row[0]
+        lang2 = row[1]
+        remarks = row[2] if len(row) > 2 else ""
+
+        return Flashcard(
+            lang1=lang1,
+            lang2=lang2,
+            remarks=remarks
+        )
+
+    return {row_index: row_to_flashcard(row) for row_index, row
+            in enumerate(csv_rows)}

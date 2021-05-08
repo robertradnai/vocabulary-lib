@@ -1,12 +1,28 @@
 # Purpose
 
-- This library creates quiz rounds based on the word lists
-  and on the alternative expression repositories
-- A quiz round consists of flashcards and multiple-choice quizzes
-  in a fixed order, these will be shown to the user
-- The library generates alternative expression repositories from 
+- To create quiz rounds based on the word lists
+  and on the alternative expression repositories, 
+  taking the user's learning progress into consideration.
+  - A quiz round consists of a batch of flashcards and quizzes
+    in a fixed order.
+  - A flashcard consists of an expression in one language, 
+    its translation to another language and additional remarks.
+  - A word list consists of flashcards, language information
+    and the learning progress.
+- To show the learning progress to the user as a percentage.
+- To reset the learning progress of the word list on request.
+- To update the learning progress of the user after they 
+  answer the multiple-choice quizzes.
+- To list all expressions (in only one language) from a collection of
   word lists, these help in generating alternative (incorrect) answers
-  for the multiple-choice quizzes
+  for the multiple-choice quizzes.
+- To read flashcards from CSV files so that existing Excel
+  tables can be easily used. The CSV files don't contain the 
+  learning progress.
+- To add the learning progress to the word list
+  by reading it from a human- and machine-readable
+  file. Saving the learning progress to such a file 
+  shall also be possible.
 
 # How to install
 * cd into the repository root

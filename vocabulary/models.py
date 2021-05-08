@@ -1,3 +1,4 @@
+from dataclasses import dataclass
 from typing import Dict, List
 
 
@@ -37,8 +38,8 @@ class LearningProgressEntry:
 
 
 class WordList:
-    def __init__(self, name, lang1: str, lang2: str, flashcards: Dict[int, Flashcard],
-                 learning_progress_codes: Dict[int, int] = None):
+    def __init__(self, lang1: str, lang2: str, flashcards: Dict[int, Flashcard],
+                 learning_progress_codes: Dict[int, int] = None, name=None):
 
         self.__name = name
         self.__lang1: str = lang1
@@ -46,7 +47,7 @@ class WordList:
         self.__flashcards: Dict[int, Flashcard] = flashcards
 
         if learning_progress_codes is None:
-            self.learning_progress_codes = {}
+            self.learning_progress_codes = {k: 1 for k in self.__flashcards.keys()}
         else:
             self.learning_progress_codes = learning_progress_codes
 
@@ -72,10 +73,11 @@ class WordList:
 
     @learning_progress_codes.setter
     def learning_progress_codes(self, learning_progress_codes: Dict[int, int]):
-        if len(learning_progress_codes) != len(self.__flashcards):
-            raise ValueError(f"Size of flashcards ({len(self.__flashcards)})"
-                             f"doesn't equal to size of learning progress codes"
-                             f" ({len(learning_progress_codes)})")
+        learning_progress_keys = set(learning_progress_codes.keys())
+        flashcard_keys = set(self.__flashcards.keys())
+
+        if learning_progress_keys != flashcard_keys:
+            raise ValueError("Flashcards and learning_progress_codes don't have the same keys!")
         else:
             self.__learning_progress = {k: LearningProgressEntry(v) for k, v in learning_progress_codes.items()}
 
@@ -92,3 +94,34 @@ class QuizPackage:
         self.directives = directives
         self.question = question
         self.flashcard = flashcard
+
+
+@dataclass
+class Flashcard:
+    lang1: str
+    lang2: str
+    remarks: str
+
+
+@dataclass
+class RenderedFlashcard(Flashcard):
+    lang1_header: str
+    lang2_header: str
+    remarks_header: str
+
+
+
+@dataclass
+class MultipleChoiceQuiz:
+    row_key: int
+    instruction_header: str
+    instruction_content: str
+    options_header: str
+    options: List[str]
+    correct_answer_indices: List[int]
+
+
+@dataclass
+class QuizEntry:
+    question: MultipleChoiceQuiz
+    flashcard: Flashcard

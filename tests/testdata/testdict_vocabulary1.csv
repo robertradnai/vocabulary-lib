@@ -1,0 +1,1089 @@
+Finn,Angol,Description,
+yliopisto,university,,1
+katu,street,,1
+kirjasto,library,,1
+kummi,"sponsor, godfather, godmother",,1
+kyllä,yes,,1
+ei,no,,1
+Kuinka paljon? Paljonko?,How much?,,1
+Kuinka monta? Montako?,How many?,,1
+Kuka?,Who?,,1
+Mikä?,What/which?,,1
+Mika huone?,What/which room?,,1
+Missä,In which? Where?,,1
+Missä huoneessa?,In which room?,,1
+täällä,(over) there,,1
+tässä,(in) here,,1
+olla,to be,,1
+minun,my,,1
+minun,my,,0.8
+sinun,your,,1
+hänen,his/her,,1
+meidän,our,,1
+teidän,your,,1
+heidän,their,,1
+-,-,,1
+ja,and,,1
+vai,or,,1
+kotimaa,homeland,,1
+Unkari,Hungary,,1
+kotoisin,from,,1
+-lainen,-ish,"espanjalainen, italialainen",1
+koti,home,,1
+maa,"country, earth",,1
+kaupunki,"city, town",,1
+kuka,Who…?,,0.8
+Minun kotimaani / nimeni           ,My home country / name,,1
+Minun kotimaani / nimeni           ,My home country / name,,1
+Sinun kotimaasi / nimesi            ,Your home country / name,,1
+Hänen kotimaansa / nimensä     ,His home country / name,,1
+Meidän kotimaamme / nimemme,Our home country / name,,1
+Teidän kotimaanne / nimenne,Your home country / name,,1
+Heidän kotimaansa / nimensä,Their home country / name,,1
+-,-,,1
+puhua ,to speak,,1
+puhun,I speak,,1
+olla,to be,,1
+olen,I am,,1
+"En ole, et ole","I'm not, you're not",,1
+Mitä kieltä?,What language?,,1
+kieli,language,,1
+äidinkieli,mother tongue,,1
+puhua ,to speak,,1
+kansalaisuus,nationality,,1
+vähän,a little / not much,,1
+sukunimi,family name,,1
+etunimi,"first name, forename",,1
+nolla,0,,1
+nolla,0,,1
+yksi,1,,1
+kaksi,2,,1
+kolme,3,,1
+neljä,4,,1
+viisi,5,,1
+kuusi,6,,1
+seitsemän,7,,1
+kahdeksän,8,,1
+yhdeksän,9,,1
+kymmenen,10,,1
+Ahaa! ,I see!,,1
+Ai!,Oh!; I see!,,1
+huomenna,tomorrow,,1
+-ssa / -ssä,in,,1
+talo,house,,1
+huone,room,,1
+huoneessa,in the room,words ending with e,1
+talossa,in the house,,1
+uusi,new,uusi naapuri,1
+uutta,new (partitive form),,1
+uudet + t,new (plural),"t: plural marker, uudet naapurit",1
+asuntola,dormitory,,1
+opiskelia-asuntola,student-dormitory,,1
+opiskelia,student,,1
+huone,room,,1
+uusi,new,,1
+naapuri,neighbour,,1
+asuinkaveri,roommate,,1
+mutta,but,,1
+nyt,now,,1
+tämä,this,,1
+tuo,that,,1
+hei hei!,bye bye!,,1
+Nähdään! ,See you!,,0.8
+kotona,at home,,1
+olla kotona,to be at home,,1
+se,that,,1
+siinä,"there, in that",siinä huoneessa,1
+tämä,this,,1
+tässä,"in this (…), here",tässä talossa,1
+tuo,that,,1
+tuossa,there,,1
+question words,[Link],,0.8
+numero,number,,1
+puhelin,telephone,,1
+puhelinnumero,telephone number,,1
+postinumero,postal code,,1
+koti,home,,1
+olohuone,living room,,1
+keittiö,kitchen,,1
+ikkuna,window,,1
+iso,big,,1
+valoisa     ,light (not dark),,1
+sohva,sofa,,1
+televisio,TV,,1
+matto,"rug, carpet, mat",,1
+hella,??,,1
+verhot,drapes (big thick curtains),,1
+pöytä,table,,1
+nojatuoli,armchair,,1
+tuoli,chair,,1
+illalla,"PM, in the evening",,1
+katsoa (1),to look,,1
+no,Well!,,1
+joskus,sometimes,,1
+istua (1),to sit,,1
+muistaa (1),to remember,,1
+yhteinen,"common, joint",,1
+tiskipöytä,sink,,1
+jääkaappi,fridge,,1
+kuivauskaappi,drying cabinet,,1
+pakastin,freezer,,1
+hyvä,good,,1
+niin      ,quite so (agreed),,1
+niin on      ,so it is (agreed),,1
+kiva,nice,,1
+osoite,address,,1
+kaappi,cabinet,,1
+monta,many + partitive singular,,1
+Mitä se on suomeksi?  ,What is it in Finnish?,Add the ending –ksi into the name of the language,1
+huoneet,rooms,,1
+eteinen,front hall,,1
+naulakko,coat rack,,0.8
+makuuhuone,bedroom,,1
+kylpyhuone,bathroom,,1
+suihku,faucets,,1
+pesuallas,washbasins,,1
+amme,bathtub,,1
+ei – eikä    ,neither – nor,,1
+Huoneessa ei ole televisiota eikä sohvaa.,There is neither a television nor a sofa in the room.,,1
+aamulla,in the morning (AM),,1
+aamu,morning,,1
+päivällä,during the day time,,1
+illalla,in the evening,,1
+yöllä,at night,,1
+Hyvää yötä,Good night,,1
+Nuku hyvin,Sleep well,,0.8
+sänky,bed,,1
+yöpöytä,"bedside table, nightstand",,1
+työpöytä,(writing) desk,,1
+vaatekaappi,wardrobe,,1
+vessa    ,toilet (Also: WC read: veesee],,1
+peili,mirror,,1
+pesula,laundry,,1
+kellari,"cellar, (basement)",,1
+pesukone,washing machine,,1
+sauna,sauna,,1
+aika,time,,1
+oikein,properly,,1
+oikea,proper,,1
+mukava   ,nice; comfortable,(mukava huone = a nice room; mukava sänky = a comfortable bed),1
+kirjahylly   ,book case,,1
+okei      ,okay,,1
+no?     ,well?,,1
+Ai jaa!      ,"Oh, I see!",,1
+siellä      ,(over) there,,1
+Kellarissa on pesula. Siellä on myös sauna. ,The laundry is in the cellar. The sauna is also there.,,1
+Missä?  + ei ole + Mitä? (in a partitive form),In (…) there is no (…),,1
+tietokone,computer,,1
+Minä en asu täällä. ,I don´t live here.,Used when we are talking about the place we are at the moment.,1
+Kellarissa on pesula.  Siellä on pesukone.,In the cellar there is the laundry. There is the washing machine,Used when we are referring to a place where we are not at the moment.,1
+Sinun huone on tuolla.,Your room is over there.,Used when we can point out the place and everyone can see it.,1
+kala,fish,,1
+mannantai,Monday,,1
+loma,holiday,,1
+hullu,crazy,,1
+kuu,moon,,1
+tuli,fire,,0.8
+tuuli,wind,,1
+kivi,stone,,1
+kiivi,kiwi,,1
+tili,account,,1
+tiili,brick,,1
+tilli,dill (HU: kapor),,1
+tee,tea,,1
+vene,boat,,1
+teema,theme,,1
+eepos,epic,,1
+käsi,hand,,1
+pää,head,,1
+lääni,province,,1
+hylly,shelf,,1
+kyy,snake (Vipera berus),,1
+kynä,pen,,1
+tyyli,style,,1
+kukka,flower,,1
+mato,worm,,1
+kana,chicken,,1
+kannu,jug (HU: kanna),,1
+koru,jewel,,1
+jarru,brake,,1
+lippu,ticket/flag,,1
+lumi,snow,,1
+lammas,sheep,,1
+passi,passport,,1
+made,burbot (HU: menyhal),,0.8
+sade,rain,,1
+jono,line/queue,,1
+heti,immediately,,1
+huono,bad,,1
+lehti,leaf,,1
+tähti,star,,1
+vuosi,year,,1
+vuodenajat,seasons,,1
+kevät,spring,,1
+kesä,summer,,1
+syksy,autumn,,1
+talvi,winter,,1
+kaunis,beautiful,,1
+lauantai,Saturday,,1
+uida (ui-),swim,,1
+suora,straight,,1
+tuo,that,,1
+koulu,school,,1
+housut,pants,,1
+koira,dog,,1
+soittaa,to play on instrument,,1
+autoilla (autoile-),to drive a car,,1
+pieni,small,,1
+viekas,cunning,,0.8
+viulu,violin,,1
+toissapäivänä,day before yesterday,,1
+eilen,yesterday,,1
+tänään,today,,1
+huomenna,tomorrow,,1
+ylihuomenna,day after tomorrow,,1
+seiväs,pole,,1
+sievä,pretty,,1
+neula,needle,,1
+eukko,old woman,,1
+poika,boy,,1
+äiti,mother,,1
+käydä + ssa,visit sth,,1
+köyhä,poor,,1
+löyly,"steam, heat",,1
+syödä,eat,,1
+yö,night,,1
+työ,work,,1
+pyörä,bike,,1
+opisto,"college, school","yliopisto - university, yli - over",1
+aketemia,academy,,1
+selvä,"right, clear",,1
+Hyvää viikonloppua!,Have a nice weekend!,,1
+Mukavaa iltaa!,Have a nice evening!,,0.8
+Avoinna/auki MA-PE 9-17,open Mon-Fri,,1
+Avoinna/auki MA-PE 9-17,open Mon-Fri,,1
+Ark./arkision 9-17,on working days,,1
+suljettu/kiinni LA-SU,closed Sat-Sun,,1
+kassa,cash desk,,1
+"vuoronumero, jonotusnumero, palvenumero",queue number,,1
+vedä,pull,,1
+työnnä,push,,1
+"ale, alennusmyynti",bargain (sale),,1
+"WC, wessa",toilet,,1
+N (Naiset),Ladies,,1
+M (Miehet),Gentlemen,,1
+varattu,"occupied, reserved",,1
+vapaa,"free, vacant",,1
+rikki,broken,,1
+epäkunnossa,out of order,,1
+ulos,exit (out),,1
+sisään / sisäänkäynti,entrance,,1
+"varatie, varauloskäynti",emergency exit,,1
+vain henkilökunnalle,for staff only,,1
+seis,stop,,1
+seis,stop,,1
+kielletty,"forbidden, not allowed",,0.8
+-,-,,1
+Mitä kuuluu? ,How are you?,,1
+ihan ,quite,,1
+Entä, what about,,1
+Entä sinulle?, What/how about you?,,1
+Mitäs kuuluu? ,How are you? [more conversational],,1
+Eipä, Not (really),,1
+erikoista, special,,1
+Eipä erikoista, Nothing special,,1
+Miten ,how,,1
+Miten menee? ,How is it going?,,1
+mennä,to go,HU: menni,1
+No…, well… (filler word),,1
+Ihan hyvin, quite well,,1
+Entä itselläs(i)?, What about yourself?,,1
+he tapaavat ,they meet,,1
+kadulla ,on the street,katu-->kadulla,1
+ei ihmeempiä ,nothing special (informal),,1
+Entä sulle? ,How about you? (spoken language),,1
+mutta ,but,,1
+koko ajan ,all the time,,1
+on kiire ,is busy,,1
+minun täytyy nyt mennä ,I need to go now,,1
+Soitellaan! ,Let’s call/ring each other!,,1
+voi ,oh  / butter,,1
+anteeksi kamalasti ,I’m terribly sorry,,1
+no ,well,,1
+ei se mitään ,it does not matter,,1
+anteeksi ,excuse me,,1
+missä on hissi ,where is the elevator,,1
+se on tuolla ,it is over there,,1
+"Anteeksi, en kuullut. ","I am sorry, I did not hear.",,1
+"Anteeksi, en ymmärrä. ","I am sorry, I do not understand",,1
+voida (voi-),to can,,1
+sanoa,to say,,1
+Voitko sanoa uudestaan? ,Can you repeat?,,1
+Voitko sanoa hitaasti? ,Can you say slowly?,,1
+Voitko sanoa englanniksi? ,Can you say in English?,,1
+Mitä se tarkoittaa? ,What does it mean?,,1
+Mitä _______ tarkoittaa? ,What does _____ mean?,,1
+Se tarkoittaa… ,It means…,,1
+En tiedä. ,I don’t know.,,1
+En muista. ,I don’t remember.,,1
+tarjota (tarjoa-),to offer,,1
+tarjous,offer,,1
+parasta,best,,1
+haluta,to want,,1
+-ksi,translative form,"The translative case (abbreviated TRANSL) is a grammatical case that indicates a change in state of a noun, with the general sense of ""becoming X"" or ""change to X"".",1
+helppo,easy,,1
+työnhaun,job search,,1
+haun,search,,1
+tehdä,to make (?),,1
+luoto,small island,,1
+saari,island,,1
+maanantai,Monday,,1
+tiistai,Tuesday,,1
+keskiviikko,Wednesday,,1
+torstai,Thursday,,1
+perjantai,Friday,,1
+lauantai,Saturday,,1
+sunnuntai,Sunday,,1
+päivä,day,,1
+juhlapäivä,holiday,,1
+Laskentatoimi,Accounting ,,1
+Arkkitehtuuri,Architecture ,,1
+Tietotekniikka,Computer Science and Engineering ,,1
+Taloustiede,Economics ,,1
+talous,economy,,1
+tiede,science,,1
+Kasvatustiede,Education (science),,1
+kasvatus,education,,1
+Sähkötekniikka,Electrical Engineering ,,1
+Ympäristötekniikka,Environmental Engineering ,,1
+Germaaninen filologia,German Philology ,,1
+Tietojenkäsittelytiede,Information Processing Science ,,1
+tieto,information,,1
+käsittely,processing,,1
+Informaatiotutkimus,Information Studies ,"Information science is a field primarily concerned with the analysis, collection, classification, manipulation, storage, retrieval, movement, dissemination, and protection of information.",1
+Johtaminen,Management ,,1
+Markkinointi,Marketing ,,1
+Konetekniikka,Mechanics,,1
+Mikä tämä on?,What is this?,,1
+huoneisto,apartment,,1
+maavoimat,army,,1
+kapteeni,captain,,1
+lapsi,child,,1
+kurssi,course,,1
+naimisissa,married (adv),,1
+naimaton,unmarried,,1
+mieheni,husband,,1
+vaimo,wife,,1
+isä,father,,1
+äiti,mother,,1
+poika,"son, boy",,1
+tytär,daughter,,1
+neiti,Miss,,1
+herra,Mr.,,1
+rouva,Mrs.,,1
+ala,"field, line of work",,1
+ystävä,friend,,1
+merkki,sign,,1
+saada (saa-),"to get, may",,1
+tutustua,get acquainted,,1
+"tuntea (tunne-, tunte-)","to know, be familiar with",,1
+hauska,fun,,1
+terve,healthy,,1
+toki,indeed,,1
+pian,soon,,1
+verkkosivu,web page,,1
+yhteystiedot,contact (web pages),,0.8
+"etusivu, nettisivu",front page,,1
+luokka,class,,1
+rikas,rich,,1
+avoin hakemus,open application,,1
+syntymäaika ,date of birth,,1
+koulutus,"training, education",,1
+kokopäivätyö     ,full-time job,,1
+osapäivätyö     ,part-time job,,1
+hakemus,application,,1
+lähetä,send,,1
+tyhjennä,clear,,1
+-,-,,0.8
+olla,"to be, to stay",,1
+voida,to be able,,1
+uskoa,to believe,,1
+"tehdä (tee-, teke-)","to make, to do","minä teen, sinä teet, hän tekee, me teemme, te teette, he tekevät",1
+asua,"to live, to reside",,1
+tavata,to meet,conjugation stem: tapaa,1
+viihtyä,to thrive,"minä viihdyn, sinä viihdyt, hän viihtyy, me viihdymme, te viihdytte, he viihtyvät",1
+antaa,to give,nt-->nn,1
+alkaa,to begin,k--> nothing,1
+lukea,to read,k --> nothing,1
+sulkea,to shut,k --> j,1
+tietää,to know,t --> d,1
+lähteä,to leave,t --> d,1
+-lle,allative case,"in the direction of something (not into), to/for someone",1
+kenelle?,to whom?,,1
+-lla/-llä on,to have,,1
+Minulla on auto,I have a car,,1
+Minulla ei ole autoa,I don't have a car,Not possessed--> partitive case,1
+Onko hänellä auto?,Does he have a car?,,1
+Eikö hänellä ole autoa?,Doesn't he have a car?,,1
+Possessive suffixes,-n,"(minum) -ni, (sinun) -si, (hänen)  -nsa/nsä, Vn, (meidän) -mme, (teidän) -nne, (heidän) -nsa",1
+Minä asun omassa talossani,I live in my own house (inf),,1
+tulla (tule-),to come,"minä tulen, sinä tulet, hän tulee, me tulemme, te tulette, he tulevat",1
+perhe,family,,1
+"salasana, tunnossana",password,,1
+sana,word,,1
+opettaja,teacher,,1
+luentosali,lecture room,,1
+Minkämaalainen sinä olet?,What country are you from,,1
+kirjakauppa,bookshop,,1
+tutkija,researcher,,0.8
+Kuinka vanha sinä olet?,How old are you?,,1
+kuva,picture,,1
+Minun pääaine on…,My major is…,,1
+kannykkä,cellphone,,1
+polkupyörä,bicycle,,1
+olut,beer,,1
+kello,clock,,1
+Kello on tasan yhdeksän.,It's exactly 9 o'clock.,,1
+Kello on tasan yhdeksän.,It's exactly 9 o'clock.,,1
+Kello on puoli kahdeksan.,It's half to 8.,,1
+Kello on kaksikymmentä yli seitsemän.,It's 7:20,,1
+Kello on kymmenen vaille yksitoista.,It's 10 minutes to 11.,,1
+suklaa,chocolate,,1
+reppu,"backpack, rucksack",,1
+laukku,"bag, case",,0.8
+takki,jacket,,1
+sateenvarjo,umbrella,,1
+hammasharja,toothbrush,,1
+hammas,tooth,,1
+maksaa,"to pay, to cost",Kuinka paljon XY maksaa?,1
+halpa,cheap,,1
+kallis,expensive,,1
+euro,euro,,1
+cent,"snt, sentti",,1
+Minä opiskelen suomea tiistaina,I study Finnish on Tuesday,,1
+Mitä kello on?,What is the time?,,1
+Hauska nähdä taas! ,Nice to see you again!,,1
+sitten,then,,1
+voin mennä,I can go,,1
+kirjastoon,into the library,,1
+vasta,not until,,1
+minäkin,me too,,1
+tulla (inf.),to come,,1
+mennä (inf.),to go,,1
+yhdessä,together,,1
+elokuva,movie ('life picture'),,1
+Moneltako…?,What time…?,Moneltako elokuva alkaa?,1
+tentti,final exam,,1
+luulla (luule-),to think,"minä luulen, sina luulet etc.",1
+auttaa,to help,,1
+lähellä,nearby,,1
+loppuu,to end,,1
+"pohjoinen, pohjois-",north,,1
+"eteläinen, etelä-",south,,1
+"itäinen, itä-",east,,1
+"läntinen, länsi-",west,,1
+Käytettävissä alkaen,Available from…,,1
+ansioluettelo,"CV, resume",,1
+"paikka, paikkakunta",place,,1
+Lue lisää,Read more,,1
+työkokemus,work experience,,1
+Yritys / työnantaja,company / employer,Lit. workgiver ,1
+Tehtävä / ammattinimike,task / professional title,,1
+pvm (päivämäärä),date,,1
+Alkupvm,starting date (of a period),,1
+Päättymispvm,ending date (of a period),,1
+Tehtävän sisältö,The content of the task,,1
+mennä kiinni,to close (to go shut),,1
+kysymys,question,,1
+kuukausi,month,,1
+tammikuu,January,,1
+helmikuu,February,,1
+maaliskuu,March,,1
+huhtikuu,April,,1
+toukokuu,May,,1
+kesäkuu,June,,1
+heinäkuu,July,,1
+elokuu,August,,1
+syyskuu,September,,1
+lokakuu,October,,1
+marraskuu,November,,1
+joulukuu,December,,1
+puisto,"park, garden",,1
+muu,"other, else",,1
+ostaa,to buy,,1
+jäätelö,ice cream,,1
+säästää,to save,,1
+raha,money?,,1
+nauraa,to laugh,,1
+myös,also,,1
+tietysti,of course,,1
+ajaa,to drive a car,,1
+bussipysäkki,bus stop,,1
+vaan,but,,1
+mies,man,,1
+nainen,woman,,1
+lähettäjä,sender,,1
+lähettää,to send,,1
+vastaanottaja,recipient,,1
+vastaus,"answer, response",,1
+otsikko,title,,1
+terveisiä,greetings,,1
+vaan,but,,1
+toivottavasti,hopefully,,1
+ymmärtää,to understand,,1
+hassu,funny,,1
+"yleensä, tavallisesti",usually,,1
+uutiset,news,,1
+etsiä töitä,to look for a job,,1
+kitara,guitar,,1
+olla töissä,to be at work,,1
+siksi,that's why,"(…), ja siksi me muutamme elokuussa.",1
+elokuu,August,,1
+Millainen sää Sao Paolossa on?,What's the weather like in Sao Paolo?,,1
+lämmin ilma,warm weather,,1
+aste,degree (e. g. temperature),,1
+aurinko,sun,,1
+paistaa,to shine,,1
+nukkua,to sleep,,1
+koska,because,,1
+Millainen?,[Milyen?],,1
+sää,weather,,1
+selkeä,clear (weather),,1
+pitää,to keep,,1
+leipoa,to bake,,1
+lentää,to fly,,1
+lähettää,to send,,1
+hiihtää,to ski,,0.8
+näyttää,to show,,1
+kertoa,to tell,,1
+kylpeä,to bathe,,1
+käyttä,to use,,1
+onkia,to fish,,1
+uskaltaa,to dare,,1
+sopia,"make up, fit (?)",,1
+ampua,shoot,,1
+piirtää,to draw,,0.8
+oppia,to learn,,1
+jakaa,to share,,1
+hiihtää,to ski,,1
+rakentaa,to build,,1
+kirjoittaa,to write,,1
+yöpyä,to spend a night,,1
+ottaa,to take,,1
+usein,often,,1
+söpö,cute,,1
+bussikuski,bus driver,,1
+G + kanssa,with someone,,1
+rakastaa + P,to love someone,,1
+4-vuotias,4-years (old),,1
+Olen 24-vuotias vanha.,I'm 24 years old,,1
+tyttö,girl,,1
+olla töissä,to be at work,,1
+vielä,yet,He eivät halua vielä mennä nukkumaa,1
+etsiä + P,to look for something,,1
+työpaikka,workplace,,1
+sama,same,,1
+pitkä,"long, tall",,1
+hoikka,slim,,1
+vaalea,"light, blond",,0.8
+tukka,hair,,1
+sininen,blue,,1
+silmä,eye,,1
+isoveli,big brother,,1
+pikkusisko,little sister,,1
+puhelias,talkative,,1
+iloinen,cheerful,,1
+kihara,curly (hair),,1
+tumma,dark,,1
+tyttöystävä,girlfriend,,0.8
+poikaystävä,boyfriend,,1
+haluta,to want,,1
+kesäyliopisto,summer university,,1
+toimisto,office,,1
+sihteeri,secretary,,1
+selvä,clear,,1
+selvä,clear,,0.8
+seuraava,next,,1
+alkaa,to begin,,1
+jo,already,,1
+toinen,"second, other",,1
+parempi,better,,1
+vielä,yet,,1
+tila,status,,1
+hetkinen,a minute (a moment),,1
+tarkistaa,"to check, to verify",,1
+vapaa,"free, vacant",,1
+paikka,place,,1
+lista,list,,1
+tarvita,to need,"
+minä tarvitsen etc.",1
+henkilötiedot,personal data,,1
+lomake,form (which one can fill in),,1
+henkilötunnus,ID number,,1
+avoliitossa,in cohabitation (living together  but not married),,1
+eronnut ,divorced,,1
+allekirjoitus,signature,,1
+alle,under,,1
+päiväys,date,,1
+monta + P,many of sth,,1
+vähän + P,little of sth,,1
+paljon + P,much of sth,,1
+pari + P,couple of sth,,1
+puoli + P,half of sth,,1
+nolla + P,zero of sth,,1
+minua,me (obj.),,1
+sinua,you (obj.),,1
+häntä,him/her/it,,1
+meitä,us,,1
+teitä,you pl. obj.,,1
+heitä,them,,1
+"iloinen, onnellinen",cheerful,,1
+surullinen,sad,,1
+puhelias,talkative,,1
+hiljainen,quiet,,1
+vihainen,mad,,0.8
+"ystävällinen, kohtelias",friendly,,1
+"epäystävällinen, epäkohtelias",unfriendly,,1
+nuori,young,,1
+vanha,old,,1
+"isoisä, isoäiti","grandfather, grandmother",,1
+mies,man,,1
+vaimo,wife,,1
+veli,brother,,1
+sisko,sister,,1
+Hänellä on pitkä vaalea suora tukka,She has long blonde straight hair,,1
+Hänellä on pitkä vaalea suora tukka,She has long blonde straight hair,,1
+Hänellä on pitkä vaalea suora tukka,She has long blonde straight hair,,1
+Hänellä on pitkä vaalea suora tukka,She has long blonde straight hair,,1
+Hänellä on pitkä vaalea suora tukka,She has long blonde straight hair,,1
+siniset silmät,blue eyes,,1
+silmälasit,glasses,,1
+nätti,baby,,1
+hyvännäköinen,good-looking,,1
+pitkä,tall,,1
+hoikka,slim,,1
+kalju,bald,,1
+vihreät silmät,green eyes,,1
+parta,beard,,1
+viikset,mustache,,1
+komea,handsome,,1
+lyhyt,short,,1
+tukeva,well-built (??),,1
+lyhyt tumma kihara tukka,short dark curly hair,,1
+ruskeat silmät,brown eyes,,1
+söpö,cute,,1
+suloinen,sweet,,1
+paita,shirt,,1
+pusero,blouse,,1
+"housut, farkut","pants, jeans",,1
+kengät,shoes,,1
+saappaat,boots,,1
+punainen,red,,1
+sininen,blue,,1
+ruskea,brown,,1
+luu,bone,,1
+Isolla koiralla on luu.,A big dog has a bone.,,1
+Mitä sinulla on mukana,What do you have with you?,,1
+Kenellä on auto?,Who has a car?,,1
+Minulla ei ole nälkä,I'm not hungry,No partitive,1
+Minulla on nälkä,I'm hungry,,1
+Minulla on jano,thirsty,,1
+Minulla on kuuma,I'm cold,,1
+Minulla on kylmä,I'm hot,,1
+avain,key,,1
+henkkarit,ID,,1
+vesipullo,water bottle,,1
+lompakko,wallet,,1
+rahaa,money,,1
+hansikkaat,gloves,,1
+nenäliina,tissue,,1
+kissa,cat,,0.8
+2 lasta,two children (partitive),,1
+kirje,letter (as message),,1
+vene,boat,,1
+pala kakkua,piece of cake,,1
+joki,river,,1
+herätä,to wake up,,1
+(…) kun herätyskello soi,when the alarm clock rings,,1
+Menen ensin (…),I go first…,,1
+(…) sitten katsomme televisiota,(…) after that we watch TV,,1
+aamupalaa,breakfast,,1
+lounas,lunch,,1
+välipala,snack,,1
+päivällinen,dinner,,1
+hedelmä (?),fruit,,1
+Lähden töihin,I leave for work,,1
+Olen töissa pankissa,I work at a bank,,1
+Töissa kirjoitan,"At work, I write",,1
+Hän ajaa kouluun pyörällä,He drives to school by bike,,0.8
+ulkona,outside,,1
+Hän pelaa jalkapalloa,He plays football,,1
+urheilu,sport,,1
+tavaratalo,department store,,1
+tehdä ruokaa,to make food,,1
+väsynyt,tired,,1
+yhdeksältä,at nine (o'clock),,0.6
+vartalo,stem (words),,1
+pääte,suffix (toldalék),,1
+soida (2),the radio is playing (?),,1
+soida (2),the radio is playing (?),,1
+nousta (3),to get up,,1
+polttaa tupakkaa (1),to smoke cigarette,,1
+avata (4) + Akk.??,to open,Avasin oven.,1
+valita (5),to choose,,1
+korjata (4),to fix,,1
+häiritä (5),to disturb,,1
+siivota (4),to clean up,,1
+imuroida (2),to vacuum,,1
+pestä (3),to wash,,1
+myydä (2),to sell,,1
+tilata (4),to order,,1
+pelata (4),to play (football),,1
+juosta,to run,,1
+tanssia,to dance,,1
+laulaa,to sing,,1
+soittaa,to play an instrument,,0.8
+seisoa,to stand,,1
+kävellä,to walk,,1
+pyöräillä,to go by bike,,1
+hymyillä,to smile,,1
+itkeä,to cry,,1
+sovittaa,to try on (shoes etc),,1
+ihana,wonderful,,1
+kokoa,size,,1
+myyjä,shop assistant (lit. seller),,1
+Minä kysyn myyjältä,I ask it from the shop assistant,,1
+tyhmä,stupid,,1
+liian,too (+ adjective),,1
+varasto,storage room,,1
+sopiva,appropriate,,1
+Voinko sovittaa tätä?,Can I try this on?,,1
+Missä on naisten / miesten / lasten osasto?,Where is the men's / women's / children' section?,,1
+pitää + sta,"to like, to be fond of",Pidän pojastani.,1
+lattia,floor,,0.8
+minusta,to me (in my point of view?),Minusta se tuntuu pitkältä päivältä,1
+asia,thing,,1
+Minulla on asiaa postiin,I have errands at the post office,,1
+odottaa,"to wait, to expect",,1
+Lapset ovat koulussa yhdeksästä neljään,The children are at school from nine till four,,1
+alkoholi,alcohol,,1
+laatikko,casserole,,1
+pikkuleipä,cookie,,1
+kerma,cream,,1
+kuppi,cup,,1
+jälkiruoka,dessert (lit. post-food),,1
+päivällinen,dinner,,1
+juoma,drink,,1
+mehu,juice,,1
+haarukka,fork,,1
+veitsi,knife,,1
+lusikka,spoon,,1
+isäntä,host,,1
+emäntä,hostess,,1
+resepti,recipe,,1
+liemi,broth,"Broth is a savory liquid made of water in which bones, meat, fish, or vegetables have been simmered. It can be eaten alone, but is most commonly used to prepare other dishes such as soups, gravies, and sauces.",1
+peruna,potato,,1
+paisti,"roast, steak",comp. to aurinko paistaa,0.8
+vatsa,stomach,,1
+kannu,"pitcher, jug",,1
+lautanen,plate,,1
+kattila,sauce pot,,1
+kansi,lid,,1
+liemikulho,soup bowl,,1
+pannukakku,pancake,,1
+paistinpannu,frying pan,,1
+tarjotin,tray,,1
+jäähtyä,to cool off,,1
+kieltää,to forbid,,1
+osata,"know, can",Osaatko italiaa? Osaatko sulkea tämän laitteen?,1
+taitaa,"may, might",,1
+sopia,to suit,,0.8
+maistaa,to taste (tr.),,1
+maistua,to taste (intr.),,1
+käyttää,to use,,1
+allerginen,allergic,,1
+herkullinen,delicious,,1
+kauhea,dreadful,,1
+kuiva,dry,,1
+erinomainen,excellent,,1
+mielenkiintoinen,interesting,,1
+viimeinen,last,,1
+alkoholiton,nonalcoholic,,1
+kylläinen,satisfied,,1
+jonkinlainen,some kind of,,1
+erikoinen,"special, strange",,1
+vastaan,against,,1
+ei millään!,no way!,,1
+"tai, vai",or,,1
+mieluummin,rather,"Kiitos, teetä mieluummin",1
+että,that,,1
+ei mitään,nothing,,1
+"Kiitos, hausika, että pidät siitä.","Thank you, I'm glad that you like it.",,1
+Sehän kuulosta hyvältä.,That sounds good.,,1
+Miltä se maistuu?,What does it taste like?,,1
+Se maistuu erikoiseltä.,It tastes peculiar.,,1
+Totta kai.,Of course.,,1
+ovi,door,,1
+vapaus,freedom,,0.8
+"Huuda, huuda iloista","Shout, shout for joy",,1
+"onnettomuus, turma, vahinko, kolari",accident,,1
+"onnettomuus, turma, vahinko, kolari",accident,,1
+lentokone,airplane,,1
+(polku)pyörä,bicycle,,1
+bussi,bus,,1
+auto,car,,1
+keskusta,center,,1
+kirkko,church,,1
+pouta,clear wheather,,1
+väri,color,,1
+konsertti,concert,,1
+kohteliasuus,compliment,,1
+vallankaappaus,coup d'etat,,1
+kaappaus,capture,,1
+maanjärystys,earthquake,,1
+tulivuorenpurkaus,eruption of volcano,,1
+räjähdys,explosion,,1
+sormi,finger,,1
+jalka,foot,,1
+lentokaappaus,hijacking,,1
+luento,lecture,,1
+metro,metro,,1
+malli,model,,1
+soopa,nonsense,,1
+norja,Norwegian language,,1
+ooppera,opera,,1
+vuorokausi,period of 24 hours,,1
+vahinko,damage,,1
+presidentti,president,,1
+hinta,price,,1
+vallankumous,revolution,,1
+kausi,season,,1
+koko,size,,1
+uni,sleep (noun),,1
+puhe,speech,,0.8
+raitiovaunu,tram,,1
+aurinko,sun,,1
+koe,test,,1
+liikenne,traffic,,1
+juna,train,,1
+matka,trip,,1
+säätiedotus,weather forecast,,1
+romu,"wreck, heap",HU: rom?,1
+vuosi,year,,1
+ostaa,to buy,,1
+sinutella,[tegezés],Emmekö voisi sinutella?,1
+viitsiä,to care to do,,1
+nukuttaa,to feel sleepy,Nukuttaako sinua? Minua nukuttaa. Ei nukuta.,1
+väsyttää,to feel tired,,1
+haukottaa,to feel like yawning,,1
+sujua,to flow,,1
+tapahtua,to happen,"Elpyminen alkaa: se voi tapahtua tämän vuoden lopulla tai ensi vuonna, mutta se alkaa.",1
+aikoa,to intend,"Jos aiot käyttää metroa, voit tutustua etukäteen Euroopan kaupunkien metrokarttoihin.",1
+keskeyttää,to interrupt,,1
+narrata,to kid,,1
+katsoa,to look at,,1
+etsiä,to look for,Etsiä töitä,1
+sataa,to rain,,1
+vuokrata,to rent,,1
+ajatella,to think,,1
+heittää,to throw,,1
+katsella,to watch,,1
+ikävä,boring,,1
+tummansininen,dark blue,,1
+koko,entire,,1
+nopea,fast,,1
+harmaa,grey,,1
+mahdoton,impossible,,1
+"viime (indecl.), viimeinen",last,viime vuonna. Indeclinable words: http://www.uusikielemme.fi/viime.html,1
+"uudenaikanen, moderni",modern,,1
+ensi (undecl.),next,,1
+oranssi,orange,,1
+kirjoittaa +lle,to write to someone,Kansalaiset voivat kirjoittaa Euroopan parlamentille saada vastauksen kyseisillä kielillä.,1
+toinen,other,,1
+vaaleapunainen,pink,,1
+slow,hidas,,1
+Gen. + mukaan,according to ,,1
+Gen. + päästä,after,,1
+jo,already,,1
+kuin,"as, like",,1
+ollenkaan,at all,,1
+kaikin mokomin,by all means,,1
+muuten,by the way,,1
+edes,even,,1
+nopeasti,fast(ly),,1
+sujuvasti,fluently,,1
+jalan,on foot,,1
+tai,or,,1
+"yhä, vielä",still,,1
+kas,well,,1
+kun,when,,1
+miksi,why,,1
+vielä,yet,,1
+valitettavasti,unfortunately,,1
+anybody,kukaan,,1
+anything,"mitään, mikään",,1
+joka (undecl.),every,,1
+"jotain, jotakin",something,,1
+haluaisin,I would like,,1
+haluaisin,I would like,,1
+Lukisin,I would read,,1
+Söisin.,We would eat. (I??),,0.8
+en olisi,I wouldn't be,,1
+Et tekisi,you wouldn't do,,1
+Olen syönyt,I have eaten,,1
+Olen syönyt,I have eaten,,1
+Olisin syönyt,I would have eaten,,1
+En ole syönyt  ,I have not eaten,,1
+En olisi syönyt,I wouldn't have eaten,,1
+Olisin rikas nyt jos olisin opiskellut ahkeraammin koulussa. ,I would be rich now if I would have studied harder at school.,,1
+En söisi niin paljon jos minulla olisi työpaikka,I wouldn't eat so much if I had a job,,1
+"Emme olisi muuttaneet pois Suomesta jos olisimme tienneet, että netissä on niin hyvä opettaja.",We wouldn't have moved away from Finland if we had known that there was such a good teacher on the internet.,,1
+vaikuttaa,to influence,,1
+vaikuttaa,to influence,,1
+laki,law,,1
+viranomaiset,authorities,,1
+Lukea -> luen ->luetaan,I am read.,Present passive,1
+Maksettiin.,I was cost,Past passive,1
+riittävä kielitaito,adequate language skills,,1
+lupa,permit,,1
+enää,any more,Tentti ei enää ole helppo.,1
+ensimerkiksi,for example,"Taksin ei tarvitse edes olla henkilöauto, se voi olla esimerkiksi kuorma-auto.",1
+pakollinen,obligatory,,1
+ennen matkaa,before the trip,,1
+ilman sinua,without you,,1
+ylin,top (highest?),ylin lämpötila,1
+pelätä,to fear,"minä pelkään, hän pelkää etc",1
+Norsut pelkäävät hiiriä,The elephans are afraid of mice.,,1
+kuulua,to be heard,,1
+Mä tuun ehkä kuudelta.,Maybe I'll come at six.,,1
+Niin kai.,I guess so.,,1
+kai,probably,Meillä on kai ruotsin sanakoe huomenna.,1
+"voida (voin, voin, voinut)","to be able to, to feel",Kuinka se voit tänään?,1
+"saada (saan, sain, saanut)","to get, to receive, to have a permission",,1
+"osata (osaan, osasin, osannut)",to know how to do something,,1
+yksinäisyys,loneliness,,1
+ääretön,infinite,,1
+Mistä tämä on tehty?,What is this made of?,,1
+Kiitos kohteliaisuudesta.,Thanks for the compliment.,,1
+jutella,to chat,,1
+Amerikan yhdysvallat,USA,,1
+aloittaa,to start,Helsingin poliisilaitos on jo aloittanut tapaamisen turvajärjestelyt.,1
+hallitus,government,,0.8
+määräaika,"deadline, term",,1
+eduskunta,parliament,,1
+marja,berry,,1
+"pienentää, vähenää",to decrease,,1
+lisääntyä,to increase,,1
+uudistus,reform,,1
+elää,to live,Elän kuin viimeistä päivää. Olen elänyt koko ikäni tässä kaupungissa.,1
+aikaisemmin,to live,,0.8
+"myöhemmin, jälkeenpäin",later,Se on vuotta myöhemmin kuin suunniteltiin.,1
+kuunella + P,to listen to,En kuunnellut uutisia,1
+salakuunnella + P,to eavesdrop,,1
+kymmenen vuotta sitten,10 years ago,yksi vuosi sitten,1
+viime viikolla,last week,,1
+tehdä työtä,to work,,1
+maalata,to paint,,1
+pyytää +P -Vn,ask someone to do something,Minä pyysin äitiä olemaan meidän kotona tiistaina.,1
+mekaanikko,mechanic (person),,1
+käyttää + P,to use something,käyttää kaasuliettä,1
+sukeltaja,diver,,1
+vaihtoehto,option,,1
+luolasto,cave,,1
+usean kuukauden ajaksi,for several months,,1
+että,that,"Yksi vaihtoehto on, että pojat opetetaan sukeltamaan pois luolasta.",1
+jäädä,to stay,"Jäädä eilen kotiin. (+ illative, ablative)",1
+mennä suojaan,to take shelter,,1
+mennä suojaan,to take shelter,,1
+lääke,medicine (substance),,1
+alue,area,,1
+ongelma,problem,,1
+valvoa,to control,,1
+tehtävä,task,,1
+"turvallisuus, turva",safety,,1
+se aiheuttaa syöpää,it can cause cancer,,1
+syöpä,cancer,,1
+asiakas,customer,,1
+asiakaspalvelu,customer service,,0.8
+kannatus,support,,1
+seurata,to follow,,1
+tapaaminen,meeting,,1
+työttömyys,unemployment,,1
+luottaa,to trust,79 prosenttia suomalaisista luottaa omaan työpaikkaan ja työtovereihin.,1
+työtoveri,co-worker,,1
+esimies,superior (at workplace),gen: esimiehen,1
+korvata,to replace,,1
+kansaneläkelaitos (Kela),Social Insurance Institution,,1
+saapua,to arrive,,1
+order (noun),tilaus,,1
+edeltävänä päivänä,the day before,,1
+lentokenttä,airfield,,1
+lentokenttä,airfield,,1
+lentoasema,airport,,1
+matkatavara,baggage,,1
+saapunut matkatavara,baggage claim,,1
+parturi,barber,,1
+kampaamo,beaty salon,,1
+varhaisaamiainen,breakfast,,1
+lasku,bill,,1
+"liikematka, virkamatka",business trip,,1
+kärryt,cart,,1
+kartonki,carton,,1
+center,keskus,,1
+shekki,check,,1
+yhteys,connection,,1
+uteliaisuus,curiosity,,1
+valuutta,currency,,1
+tulli,custom (vám?),,1
+treffit,date (colloq),,1
+ulkomaalainen,foreigner,,1
+"lomake, kaavake",form,,1
+satama,harbor,,1
+neuvonta,information,,1
+tarkastus,inspection,,1
+avain,key,,1
+aula,lobby,,1
+perunamuhennus,mashed potatoes,,1
+kokous,meeting,,1
+ruokalista,menu,,1
+"hetki, hetkinen",moment,,1
+yökerho,night club,,1
+leivos,pastry,,1
+"henki, henkilö",person,,1
+vastaanotto,reception,,1
+"(pöytä)varaus, (huone)varaus",reservation,,1
+uimahalli,swimming pool,,1
+summa,sum,,1
+taksi,taxi,,1
+juomaraha,tip,,1
+matkustaja,traveler,,1
+saapua,to arrive,,1
+kylpeä,to bathe,,1
+vaihtaa,to exchange,,1
+selittää,to explain,,1
+täyttää,to fill,,1
+unohtaa,to forget,,1
+sysältyä intr. ,to include,,1
+suositella,to recommend,,1
+muistutta,"to remind, resemble",,1
+varata,to reserve,,1
+"tarjoilla, palvella",to serve,,1
+viipyä,to stay,,1
+matkustaa,to travel,,1
+"parhain, paras",best,,1
+kotimainen,domestic,,1
+ulkomainen,foreigner,,1
+tuore,fresh,,1
+"kansallinen, kansallis-",national,,0.8
+tavattavissa,available,,1
+joko…tai/tahi,either..or,,1
+kuulemiin,goodbye,,1
+kauan,long (time),,1
+puolitoista,one and a half,,1
+yhdessä,together,,1
+(illat.) + asti,until,,1
+kaikki,all,,1
+ei kukaan,nobody,,1
+ei mikään,nothing,,1
+joku,somebody,,1
+jokin,something,,1

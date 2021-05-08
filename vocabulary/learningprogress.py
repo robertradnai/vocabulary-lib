@@ -151,7 +151,7 @@ def pick_word(learning_progress_dict: Dict[int, str], active_limit: int, recent_
     return progress_dict_mod, selected_key, show_flashcard
 
 
-def pick_words(learning_progress_dict: Dict[int, str],
+def pick_words(learning_progress_dict: Dict[int, int],
                filter_by_progress: Callable[[str], bool],
                order: str, max_count_from_size: Callable[[int], int]) -> List[int]:
 
