@@ -1,5 +1,6 @@
 from dataclasses import dataclass
 from typing import Dict, List
+from dataclasses_json import dataclass_json, LetterCase
 
 
 class Question:
@@ -96,6 +97,7 @@ class QuizPackage:
         self.flashcard = flashcard
 
 
+@dataclass_json(letter_case=LetterCase.CAMEL)
 @dataclass
 class Flashcard:
     lang1: str
@@ -103,6 +105,7 @@ class Flashcard:
     remarks: str
 
 
+@dataclass_json(letter_case=LetterCase.CAMEL)
 @dataclass
 class RenderedFlashcard(Flashcard):
     lang1_header: str
@@ -110,7 +113,7 @@ class RenderedFlashcard(Flashcard):
     remarks_header: str
 
 
-
+@dataclass_json(letter_case=LetterCase.CAMEL)
 @dataclass
 class MultipleChoiceQuiz:
     row_key: int
@@ -121,6 +124,7 @@ class MultipleChoiceQuiz:
     correct_answer_indices: List[int]
 
 
+@dataclass_json(letter_case=LetterCase.CAMEL)
 @dataclass
 class QuizEntry:
     question: MultipleChoiceQuiz

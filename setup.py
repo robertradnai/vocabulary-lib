@@ -12,6 +12,7 @@ setuptools.setup(
     packages=setuptools.find_packages(),
     classifiers=[
     ],
-    install_requires=['et-xmlfile==1.0.1', 'jdcal==1.4.1', "ngram==3.3.2", "openpyxl==3.0.5"],
+    install_requires=['et-xmlfile==1.0.1', 'jdcal==1.4.1', "ngram==3.3.2", "openpyxl==3.0.5",
+                      "dataclasses-json==0.5.4"],
     python_requires='>=3.6'
 )
