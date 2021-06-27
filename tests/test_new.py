@@ -10,7 +10,7 @@ from typing import List, Dict
 import copy
 
 from vocabulary import WordList
-from vocabulary.dataaccess import read_flashcards_from_csv_string, build_word_list, \
+from vocabulary.dataaccess import read_flashcards_from_csv_string, build_word_list_csv, \
     save_word_list_learning_progress_json
 from vocabulary.models import QuizEntry
 from vocabulary.wordlistquiz import create_quiz_round, submit_answers, get_learning_progress
@@ -60,7 +60,7 @@ def run_test_rounds(repetitions: int) -> List[QuizProgressTest]:
 
     with open("testdata/testdict_shorttest.csv") as f:
         flashcards_csv_str = f.read()
-    word_list = build_word_list("Finnish", "English", flashcards_csv_str)
+    word_list = build_word_list_csv("Finnish", "English", flashcards_csv_str)
 
     progress_tests = []
     for _ in range(0, repetitions):
@@ -78,7 +78,7 @@ class TestWordListDao(unittest.TestCase):
 
     def test_build_word_list_without_learning_progress(self):
 
-        word_list = build_word_list("Finnish", "English", get_flashcards_csv_str())
+        word_list = build_word_list_csv("Finnish", "English", get_flashcards_csv_str())
 
         assert word_list.lang1 == "Finnish"
         assert word_list.lang2 == "English"
@@ -90,8 +90,8 @@ class TestWordListDao(unittest.TestCase):
         learning_progress = {0: 1, 1: 2, 2: 3, 3: 4, 4: 5, 5: 0, 6: 1, 7: 1, 8: 1, 9: 1, 10: 1,
                              11: 1, 12: 1, 13: 1, 14: 1, 15: 1}
 
-        word_list = build_word_list("Finnish", "English", get_flashcards_csv_str(),
-                                    save_word_list_learning_progress_json(learning_progress))
+        word_list = build_word_list_csv("Finnish", "English", get_flashcards_csv_str(),
+                                        save_word_list_learning_progress_json(learning_progress))
 
         assert 1 == word_list.learning_progress_codes[0]
         assert 3 == word_list.learning_progress_codes[2]

@@ -187,7 +187,7 @@ def word_collection_from_pickle(path: str) -> WordCollection:
         return pickle.load(f)
 
 
-def build_word_list(lang1, lang2, flashcards_csv_str, learning_progress_json_str= None):
+def build_word_list_csv(lang1, lang2, flashcards_csv_str, learning_progress_json_str= None):
 
     flashcards = read_flashcards_from_csv_string(flashcards_csv_str, True)
 
